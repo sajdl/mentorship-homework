@@ -5,6 +5,10 @@ export class FlightsPage {
         this.originInput = page.getByRole('textbox', {
             name: 'Departure City or Airport'
         });
+        this.destinationTrigger = page.locator('#fl_to_trigger');
+        this.destinationInput = page.getByRole('textbox', {
+            name: 'Arrival City or Airport'
+        });
     }
 
     async goto() {
@@ -22,6 +26,12 @@ export class FlightsPage {
     async selectOrigin(city, airport) {
         await this.originTrigger.getByText('Departure City or Airport').click();
         await this.originInput.fill(city);
+        await this.page.getByText(airport, { exact: true }).click();
+    }
+
+    async selectDestination(city, airport) {
+        await this.destinationTrigger.getByText('Arrival City or Airport').click();
+        await this.destinationInput.fill(city);
         await this.page.getByText(airport, { exact: true }).click();
     }
 }
