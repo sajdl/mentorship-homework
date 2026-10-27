@@ -26,7 +26,7 @@ test('should select departure and destination airports', async ({ page }) => {
     .toContainText(flightData.destination.expected);
 
   const departureDate = generateRandomFutureDate();
-  
+
   await flightsPage.selectDepartureDate(departureDate);
 
   const expectedDate = departureDate.toLocaleDateString('en-US', {
@@ -37,4 +37,7 @@ test('should select departure and destination airports', async ({ page }) => {
 
   await expect(flightsPage.departureDateInput)
     .toHaveValue(expectedDate);
+
+  await expect(flightsPage.oneWayButton)
+    .toHaveAttribute('aria-pressed', 'true');
 });

@@ -18,6 +18,9 @@ export class FlightsPage {
             .first();
         this.previousDecade = page.locator('.datepicker-years .prev .inline-block')
             .first();
+        this.oneWayButton = page.getByRole('button', {
+            name: 'One Way'
+        });
     }
 
     async goto() {
