@@ -8,5 +8,8 @@
     "city": "vienna",
     "airport": "Vienna International Airport",
     "expected": "VIE - Vienna Intl"
+  },
+  "passengers": {
+    "adults": 2
   }
 }

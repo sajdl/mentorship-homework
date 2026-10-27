@@ -21,6 +21,14 @@ export class FlightsPage {
         this.oneWayButton = page.getByRole('button', {
             name: 'One Way'
         });
+        this.passengerSelector = page.getByText('Passengers', {
+            exact: true
+        });
+        this.adultAddButton = page
+            .getByText('Adults', { exact: true })
+            .locator('..')
+            .locator('..')
+            .getByRole('button', { name: 'add' });
     }
 
     async goto() {
@@ -104,7 +112,16 @@ export class FlightsPage {
 
         // Select day
         await this.page.getByRole('table')
+            .locator('.day:not(.old):not(.new):not(.disabled)')
             .getByText(String(targetDay), { exact: true })
             .click();
+    }
+
+    async selectPassengers(adults) {
+        await this.passengerSelector.click();
+
+        for (let i = 1; i < adults; i++) {
+            await this.adultAddButton.click();
+        }
     }
 }
