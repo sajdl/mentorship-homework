@@ -1,0 +1,12 @@
+{
+  "origin": {
+    "city": "belgrade",
+    "airport": "Belgrade Nikola Tesla Airport",
+    "expected": "BEG - Nikola Tesla"
+  },
+  "destination": {
+    "city": "vienna",
+    "airport": "Vienna International Airport",
+    "expected": "VIE - Vienna Intl"
+  }
+}
