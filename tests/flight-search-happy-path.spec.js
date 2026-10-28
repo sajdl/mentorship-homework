@@ -40,4 +40,10 @@ test('should select departure and destination airports', async ({ page }) => {
 
   await expect(flightsPage.oneWayButton)
     .toHaveAttribute('aria-pressed', 'true');
+
+  await flightsPage.selectPassengers(flightData.passengers.adults);
+
+  await expect(
+    page.getByText('2 Passengers', { exact: true })
+  ).toBeVisible();
 });
